@@ -1,27 +1,6 @@
-// import React from 'react';
-// import { NavLink } from 'react-router-dom';
-
-// const DestinationsCards = () => {
-//     return (
-//         <div className='mt-20'>
-//             <h2 className='text-xl font-bold'>These top destinations are just a click away</h2>
-//             <div className='mt-4'>
-//                 <NavLink to="/" className="p-2 font-bold text-gray-500 hover:bg-gray-200">Top Cities</NavLink>
-//                 <NavLink to="/destinations" className="p-2 font-bold text-gray-500 hover:bg-gray-200">Top Destinations</NavLink>
-//             </div>
-
-//         </div>
-//     );
-// };
-
-// export default DestinationsCards;
-
-
-
-
-
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
+import Cards from './Cards'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -32,113 +11,13 @@ export default function DestinationsCards() {
     Top_Cities: [
       {
         id: 1,
-        content: 
-        <div className='flex'>
-            <div className='w-[272px] h-[328px]'>
-            <div>
-               <img className='rounded-xl' src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_258,q_auto,w_258/dummy.jpeg" alt="" />
-            </div>
-            <div>
-                <h4 className="font-bold mt-1">Hotels in Mumbai</h4>
-                <div className='flex gap-2 text-sm mt-1'>
-                <p>10,111 Hotels</p>
-                <strong>Avg ₹3,675</strong>
-                </div>
-            </div>
-             </div>
-            <div className='w-[272px] h-[328px]'>
-            <div>
-               <img className='rounded-xl' src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_258,q_auto,w_258/dummy.jpeg" alt="" />
-            </div>
-            <div>
-                <h4 className="font-bold mt-1">Hotels in Mumbai</h4>
-                <div className='flex gap-2 text-sm mt-1'>
-                <p>10,111 Hotels</p>
-                <strong>Avg ₹3,675</strong>
-                </div>
-            </div>
-             </div>
-            <div className='w-[272px] h-[328px]'>
-            <div>
-               <img className='rounded-xl' src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_258,q_auto,w_258/dummy.jpeg" alt="" />
-            </div>
-            <div>
-                <h4 className="font-bold mt-1">Hotels in Mumbai</h4>
-                <div className='flex gap-2 text-sm mt-1'>
-                <p>10,111 Hotels</p>
-                <strong>Avg ₹3,675</strong>
-                </div>
-            </div>
-             </div>
-            <div className='w-[272px] h-[328px]'>
-            <div>
-               <img className='rounded-xl' src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_258,q_auto,w_258/dummy.jpeg" alt="" />
-            </div>
-            <div>
-                <h4 className="font-bold mt-1">Hotels in Mumbai</h4>
-                <div className='flex gap-2 text-sm mt-1'>
-                <p>10,111 Hotels</p>
-                <strong>Avg ₹3,675</strong>
-                </div>
-            </div>
-             </div>
-        </div>
+        content: <Cards/>
       }
     ],
     Top_Destinations: [
       {
         id: 1,
-        content:
-        <div className='flex'>
-        <div className='w-[272px] h-[328px]'>
-        <div>
-           <img className='rounded-xl' src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_258,q_auto,w_258/dummy.jpeg" alt="" />
-        </div>
-        <div>
-            <h4 className="font-bold mt-1">Hotels in Mumbai</h4>
-            <div className='flex gap-2 text-sm mt-1'>
-            <p>10,111 Hotels</p>
-            <strong>Avg ₹3,675</strong>
-            </div>
-        </div>
-         </div>
-        <div className='w-[272px] h-[328px]'>
-        <div>
-           <img className='rounded-xl' src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_258,q_auto,w_258/dummy.jpeg" alt="" />
-        </div>
-        <div>
-            <h4 className="font-bold mt-1">Hotels in Mumbai</h4>
-            <div className='flex gap-2 text-sm mt-1'>
-            <p>10,111 Hotels</p>
-            <strong>Avg ₹3,675</strong>
-            </div>
-        </div>
-         </div>
-        <div className='w-[272px] h-[328px]'>
-        <div>
-           <img className='rounded-xl' src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_258,q_auto,w_258/dummy.jpeg" alt="" />
-        </div>
-        <div>
-            <h4 className="font-bold mt-1">Hotels in Mumbai</h4>
-            <div className='flex gap-2 text-sm mt-1'>
-            <p>10,111 Hotels</p>
-            <strong>Avg ₹3,675</strong>
-            </div>
-        </div>
-         </div>
-        <div className='w-[272px] h-[328px]'>
-        <div>
-           <img className='rounded-xl' src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_258,q_auto,w_258/dummy.jpeg" alt="" />
-        </div>
-        <div>
-            <h4 className="font-bold mt-1">Hotels in Mumbai</h4>
-            <div className='flex gap-2 text-sm mt-1'>
-            <p>10,111 Hotels</p>
-            <strong>Avg ₹3,675</strong>
-            </div>
-        </div>
-         </div>
-    </div>
+        content: <Cards/>
       }
     ]
   })
@@ -171,7 +50,7 @@ export default function DestinationsCards() {
               key={idx}
               className={classNames(
                 'rounded-xl bg-white p-3',
-                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
+                'ring-white ring-opacity-60 ring-offset-2 focus:ring-2'
               )}
             >
               <ul className='w-[1080px]'>
