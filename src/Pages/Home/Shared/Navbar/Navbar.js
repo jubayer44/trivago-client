@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../Context/AuthProvider";
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContext);
   const [navbar, setNavbar] = useState(false);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+      })
+      .catch((err) => console.error(err));
+  };
+
+
+
   return (
     <nav className=" w-full bg-white border-b">
       <div className="justify-between mx-auto md:items-center md:flex max-w-[1280px] mr-0">
@@ -159,10 +171,16 @@ const Navbar = () => {
                 </svg>
                 <Link to="/">My Favourites</Link>
               </li>
-              <li className="text-gray-600 hover:text-blue-600 flex gap-1">
+              {
+                !user?.email && 
+                <li className="text-gray-600 hover:text-blue-600 flex gap-1">
                 <Link to="/login">Log in </Link>
               </li>
+              }
               <li className="text-gray-600 hover:text-blue-600 flex gap-1 peer">
+                {
+                  user?.email && <svg tabindex="-1" width="24" height="24" viewBox="0 0 24 24" class="pointer-events-none max-h-full max-w-full" xmlns="http://www.w3.org/2000/svg"><g fill-rule="nonzero" fill="none"><circle fill="#F9C77F" cx="12" cy="12" r="12"></circle><path d="M14.223 14.324H9.5c-.126 0-.227.101-.202.228.126 1.111 1.238 2.248 2.577 2.248s2.45-1.137 2.577-2.248a.226.226 0 00-.228-.228z" fill="#37454D"></path><g transform="translate(4.042 9.347)" fill="#37454D"><circle cx="14.425" cy="1.238" r="1.061"></circle><circle cx="1.213" cy="1.314" r="1.061"></circle></g></g></svg>
+                }
                 <Link
                   to="/"
                 >
@@ -187,10 +205,16 @@ const Navbar = () => {
               <div  className="hidden absolute peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg top-10 right-1"
                 >
                   <Link className="px-5 py-3 hover:bg-gray-200 border" to="/">
+                    Account settings
+                  </Link>
+                  <Link className="px-5 py-3 hover:bg-gray-200 border" to="/">
                     Recently viewed
                   </Link>
                   <Link className="px-5 py-3 hover:bg-gray-200 border" to="/">
                     Help and support
+                  </Link>
+                  <Link onClick={handleLogout} to="/" className="px-5 py-3 hover:bg-gray-200 border">
+                    Log out
                   </Link>
                 </div>
               <li className="text-gray-600 hover:text-blue-600 flex gap-1">

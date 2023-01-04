@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import CreatePassword from "../Pages/Login/CreatePassword";
 import LoginPassword from "../Pages/Login/LoginPassword";
+import TopCities from "../Pages/DestinationsCards/TopCities";
 
 const router = createBrowserRouter([
     {
@@ -12,8 +13,12 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home/>
-            },
+                element: <Home/>,
+                children: [{
+                    path: "/",
+                    element: <TopCities/>
+                }]
+            }
             
         ]
     },
