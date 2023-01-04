@@ -5,11 +5,14 @@ import Login from "../Pages/Login/Login";
 import CreatePassword from "../Pages/Login/CreatePassword";
 import LoginPassword from "../Pages/Login/LoginPassword";
 import TopCities from "../Pages/DestinationsCards/TopCities";
+import Cities from "../Pages/Cities/Cities";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main/>,
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: "/",
@@ -18,6 +21,10 @@ const router = createBrowserRouter([
                     path: "/",
                     element: <TopCities/>
                 }]
+            },
+            {
+                path: "/city/:id",
+                element: <Cities/>
             }
             
         ]
@@ -33,7 +40,7 @@ const router = createBrowserRouter([
     {
         path: "/loginPassword/:id",
         element: <LoginPassword/>,
-        loader: ({params})=> fetch(`http://localhost:5000/loginPassword/${params.id}`)
+        loader: ({params})=> fetch(`${process.env.REACT_APP_url}/loginPassword/${params.id}`)
     }
 ]);
 

@@ -204,18 +204,22 @@ const Navbar = () => {
               </li>
               <div  className="hidden absolute peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg top-10 right-1"
                 >
-                  <Link className="px-5 py-3 hover:bg-gray-200 border" to="/">
+                  {
+                    user?.email && <Link className="px-5 py-3 hover:bg-gray-200 border" to="/">
                     Account settings
                   </Link>
+                  }
                   <Link className="px-5 py-3 hover:bg-gray-200 border" to="/">
                     Recently viewed
                   </Link>
                   <Link className="px-5 py-3 hover:bg-gray-200 border" to="/">
                     Help and support
                   </Link>
-                  <Link onClick={handleLogout} to="/" className="px-5 py-3 hover:bg-gray-200 border">
+                  {
+                    user?.email && <Link onClick={handleLogout} to="/" className="px-5 py-3 hover:bg-gray-200 border">
                     Log out
                   </Link>
+                  }
                 </div>
               <li className="text-gray-600 hover:text-blue-600 flex gap-1">
                 <Link to="/">INR</Link>

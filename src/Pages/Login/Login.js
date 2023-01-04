@@ -1,23 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Register = () => {
   const {googleLogIn} = useContext(AuthContext);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = (event) => {
+    setLoading(true);
     event.preventDefault();
     const email = event.target.email.value;
-    fetch(`http://localhost:5000/user?email=${email}`)
+    fetch(`${process.env.REACT_APP_url}/user?email=${email}`)
     .then(res => res.json())
     .then(data => {
       if(data){
         navigate(`/loginPassword/${email}`);
-        
+        setLoading(false);
       }
       else {
          navigate(`/CreatePassword/${email}`);
+         setLoading(false);
        }
     })
     .catch(err => console.log(err))
@@ -50,7 +53,11 @@ const Register = () => {
           id="Your email address"
           name="email"
         />
-        <button type="submit" className="block text-center w-full p-2 rounded-md bg-[#007cc2] font-bold text-white">Next</button>
+        <button type="submit" className="block text-center w-full p-2 rounded-md bg-[#007cc2] font-bold text-white">
+          {
+            loading ? <div className="w-6 h-6 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div> : "Next"
+          }
+          </button>
         </form>
         <div className="flex items-center my-4">
             <p className="w-1/2 h-[1px] bg-gray-500"></p><span className="px-1 mb-1">OR</span><p className="w-1/2 h-[1px] bg-gray-500"></p>

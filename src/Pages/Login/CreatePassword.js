@@ -7,16 +7,18 @@ const CreatePassword = () => {
   const [isVisible, setIsVisible] = useState(false)
   const {signUp} = useContext(AuthContext);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const location = useLocation();
   const email = location.pathname.split('/')[2];
 
   const handleSignUp = (event) => {
+    setLoading(true);
     event.preventDefault();
     const password = event.target.password.value;
     signUp(email, password)
     .then(res => {
-      fetch(`http://localhost:5000/addEmail`, {
+      fetch(`${process.env.REACT_APP_url}/addEmail`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -28,6 +30,7 @@ const CreatePassword = () => {
       if(data?.acknowledged){
         setError('');
       navigate('/');
+      setLoading(false);
       }
        
     })
@@ -83,7 +86,9 @@ const CreatePassword = () => {
             type="submit"
             className="block text-center w-full p-2 rounded-md bg-[#007cc2] font-bold text-white"
           >
-            Create account
+            {
+            loading ? <div className="w-6 h-6 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div> : "Create account"
+          }
           </button>
         </form>
         <p className="my-2">Your password should have at least:</p>

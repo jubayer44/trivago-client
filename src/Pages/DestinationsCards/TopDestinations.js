@@ -6,15 +6,15 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import { Link } from "react-router-dom";
 
-const TopCities = () => {
-  const [cities, setCities] = useState();
+const TopDestinations = () => {
+  const [destinations, setDestinations] = useState();
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_url}/topCities`)
+    fetch(`${process.env.REACT_APP_url}/topDestinations`)
       .then((res) => res.json())
       .then((data) => {
-        setCities(data);
+        setDestinations(data);
         setLoading(false);
       });
   }, []);
@@ -24,8 +24,6 @@ const TopCities = () => {
   }
 
   return (
-    <>
-    
     <Swiper
       slidesPerView={4}
       spaceBetween={30}
@@ -36,7 +34,7 @@ const TopCities = () => {
       modules={[Pagination]}
       className="mySwiper"
     >
-      {cities?.map((city) => {
+      {destinations?.map((city) => {
         return (
           <SwiperSlide key={city?._id}>
             <Link to={`/${city?._id}`} className="w-[272px] h-[328px]">
@@ -55,8 +53,7 @@ const TopCities = () => {
         );
       })}
     </Swiper>
-    </>
   );
 };
 
-export default TopCities;
+export default TopDestinations;

@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#0a1121] text-gray-200 py-10">
-      <div className="w-[1080px] mx-auto">
+      <div className="md:w-[1080px] mx-auto">
         <div>
           <p>
             Thanks for subscribing to the trivago newsletter. We have sent you

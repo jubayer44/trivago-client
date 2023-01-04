@@ -8,14 +8,18 @@ const LoginPassword = () => {
   const userMail = useLoaderData();
   const {logIn} = useContext(AuthContext);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
 
   const handleLogin = (event) => {
+    setLoading(true);
     event.preventDefault();
     const password = event.target.password.value;
     logIn(userMail?.email, password)
     .then(res => {
       setError("");
       navigate('/')
+      setLoading(false);
     })
     .catch(err => {
       setError(err.message);
@@ -70,7 +74,9 @@ const LoginPassword = () => {
           type="submit"
           className="block text-center w-full p-2 mb-2 rounded-md bg-[#007cc2] font-bold text-white"
         >
-          Log in
+          {
+            loading ? <div className="w-6 h-6 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div> : "Log in"
+          }
         </button>
        </form>
         <Link className=" underline text-blue-500">Forgot your password?</Link>

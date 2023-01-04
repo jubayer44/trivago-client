@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
-import Cards from './Cards'
+import TopCities from './TopCities'
+import TopDestinations from './TopDestinations'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -11,13 +12,13 @@ export default function DestinationsCards() {
     Top_Cities: [
       {
         id: 1,
-        content: <Cards/>
+        content: <TopCities/>
       }
     ],
     Top_Destinations: [
       {
         id: 1,
-        content: <Cards/>
+        content: <TopDestinations/>
       }
     ]
   })
