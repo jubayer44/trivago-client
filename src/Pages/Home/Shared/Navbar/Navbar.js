@@ -160,7 +160,7 @@ const Navbar = () => {
                 <Link to="/">My Favourites</Link>
               </li>
               <li className="text-gray-600 hover:text-blue-600 flex gap-1">
-                <Link to="/">Log in </Link>
+                <Link to="/login">Log in </Link>
               </li>
               <li className="text-gray-600 hover:text-blue-600 flex gap-1 peer">
                 <Link
@@ -184,17 +184,14 @@ const Navbar = () => {
                   ></path>
                 </svg>
               </li>
-              <div  class="hidden absolute peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg top-10 right-1"
+              <div  className="hidden absolute peer-hover:flex hover:flex w-[200px] flex-col bg-white drop-shadow-lg top-10 right-1"
                 >
-                  <a className="px-5 py-3 hover:bg-gray-200" href="/">
-                    About Us
-                  </a>
-                  <a className="px-5 py-3 hover:bg-gray-200" href="/">
-                    Contact Us
-                  </a>
-                  <a className="px-5 py-3 hover:bg-gray-200" href="/">
-                    Privacy Policy
-                  </a>
+                  <Link className="px-5 py-3 hover:bg-gray-200 border" to="/">
+                    Recently viewed
+                  </Link>
+                  <Link className="px-5 py-3 hover:bg-gray-200 border" to="/">
+                    Help and support
+                  </Link>
                 </div>
               <li className="text-gray-600 hover:text-blue-600 flex gap-1">
                 <Link to="/">INR</Link>
@@ -217,6 +214,71 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <div className="md:hidden">
+                <ul className="items-center gap-10 flex md:space-x-10 md:space-y-0 px-3 border-t py-4">
+                  <li className="text-gray-600 hover:text-blue-600 flex gap-1">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      className="pointer-events-none max-h-full max-w-full"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21 12a3.1 3.1 0 00-1-2.31V6a1 1 0 00-1-1H5a1 1 0 00-1 1v3.69A3.1 3.1 0 003 12a1 1 0 00-1 1v4a2 2 0 002 2h16a2 2 0 002-2v-4a1 1 0 00-1-1zm-7.76-1a1.72 1.72 0 011.51-1h3.5a1.5 1.5 0 01.75.2 1.87 1.87 0 01.91 1.21A1.87 1.87 0 0120 12h-7a2.2 2.2 0 01.24-1zM5 6h14v3.12a2.36 2.36 0 00-.75-.12h-3.5a2.78 2.78 0 00-2.59 2 3.27 3.27 0 00-.16 1 3.27 3.27 0 00-.16-1 2.78 2.78 0 00-2.59-2h-3.5a2.36 2.36 0 00-.75.12zm-.91 5.41A1.87 1.87 0 015 10.2a1.5 1.5 0 01.75-.2h3.5a1.72 1.72 0 011.51 1 2.2 2.2 0 01.24 1H4a1.87 1.87 0 01.09-.59zM21 17a1 1 0 01-1 1H4a1 1 0 01-1-1v-4h18z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                    <Link to="/">Stays</Link>
+                  </li>
+                  <li className="text-gray-600 hover:text-blue-600 flex gap-1">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      className="pointer-events-none max-h-full max-w-full"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g fill="currentColor">
+                        <path d="M19 11a.93.93 0 00-.06-.37l-1.76-4.37A2 2 0 0015.32 5H8.68a2 2 0 00-1.86 1.26l-1.75 4.37A.93.93 0 005 11a2 2 0 00-2 2v3a2 2 0 002 2v1a1 1 0 001 1h2a1 1 0 001-1v-1h6v1a1 1 0 001 1h2a1 1 0 001-1v-1a2 2 0 002-2v-3a2 2 0 00-2-2zM7.75 6.63A1 1 0 018.68 6h6.64a1 1 0 01.93.63L18 11H6zM8 19H6v-1h2zm10 0h-2v-1h2zm2-3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3a1 1 0 011-1h14a1 1 0 011 1z"></path>
+                        <circle cx="7" cy="14" r="1"></circle>
+                        <circle cx="17" cy="14" r="1"></circle>
+                      </g>
+                    </svg>
+                    <Link to="/">Cars</Link>
+                  </li>
+                  <li className="text-gray-600 hover:text-blue-600 flex gap-1">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      className="pointer-events-none max-h-full max-w-full"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20.39 12.08L14 9.3V5c0-.64-.5-3-2-3s-2 2.36-2 3v4.3l-6.39 2.78A1 1 0 003 13v1a1 1 0 00.34.76A1.07 1.07 0 004 15h.14l5.86-.87v2.34l-2.55 1.7A1 1 0 007 19v1a1 1 0 00.47.85A1 1 0 008 21a1 1 0 00.45-.11L12 19.12l3.55 1.77A1 1 0 0016 21a1 1 0 00.53-.15A1 1 0 0017 20v-1a1 1 0 00-.45-.83L14 16.47v-2.34l5.86.86H20a1.07 1.07 0 00.66-.24A1 1 0 0021 14v-1a1 1 0 00-.61-.92zM20 14l-7-1v4l3 2v1l-4-2-4 2v-1l3-2v-4l-7 1v-1l7-3V5c0-.55.45-2 1-2s1 1.45 1 2v5l7 3z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                    <Link to="/">Flights</Link>
+                  </li>
+                  <li className="text-gray-600 hover:text-blue-600 flex gap-1">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      className="pointer-events-none max-h-full max-w-full"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 6h-3v-.67A2.16 2.16 0 0015 3H9a2.16 2.16 0 00-2 2.33V6H4a1.9 1.9 0 00-2 1.76v11.48A1.9 1.9 0 004 21h16a1.9 1.9 0 002-1.76V7.76A1.9 1.9 0 0020 6zM8 5.33C8 4.6 8.45 4 9 4h6c.55 0 1 .6 1 1.33V6H8zM4 20c-.54 0-1-.35-1-.76V7.76C3 7.35 3.46 7 4 7h1v13zm2 0V7h12v13zm15-.76c0 .41-.46.76-1 .76h-1V7h1c.54 0 1 .35 1 .76z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                    <Link to="/">Packages</Link>
+                  </li>
+                </ul>
+              </div>
     </nav>
   );
 };
