@@ -23,6 +23,7 @@ const LoginPassword = () => {
     })
     .catch(err => {
       setError(err.message);
+      setLoading(false);
       console.error(err)
     });
   };
